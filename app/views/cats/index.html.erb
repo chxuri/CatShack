@@ -1,0 +1,13 @@
+<h1>Cats</h1>
+<p>Hi :3</p>
+
+<div id="cats">
+    <% @cats.each do |cat| %>
+        <div>
+            <a href="/cats/<%= cat.id %>">
+                <%= cat.name %>
+            </a>
+        </div>
+    <% end %>
+</div>
+
