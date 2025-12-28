@@ -1,3 +1,5 @@
 <h1><%= @cat.name %></h1>
 
 <%= link_to "Back", cats_path %>
+<%= link_to "Edit", edit_cat_path(@cat)%>
+<%= button_to "Delete", @cat, method: :delete, data: { turbo_confirm: "Are you sure? D:" } %>
