@@ -1,12 +1,12 @@
 <h1>Cats</h1>
 <p>Hi :3</p>
 
+<%= link_to "post a pic :D", new_cat_path %>
+
 <div id="cats">
     <% @cats.each do |cat| %>
         <div>
-            <a href="/cats/<%= cat.id %>">
-                <%= cat.name %>
-            </a>
+            <%= link_to cat.name, cat_path(cat.id)%>
         </div>
     <% end %>
 </div>
