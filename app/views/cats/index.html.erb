@@ -1,4 +1,4 @@
-<h1>Cats</h1>
+<h1>Cat Shack</h1>
 <p>Hi :3</p>
 
 <%= link_to "post a pic :D", new_cat_path %>
@@ -7,6 +7,11 @@
     <% @cats.each do |cat| %>
         <div>
             <%= link_to cat.name, cat_path(cat.id)%>
+            <% if cat.photo.attached? %>
+                <%= image_tag cat.photo %>
+            <% else %>
+                <p>no photo uploaded</p>
+            <% end %>
         </div>
     <% end %>
 </div>

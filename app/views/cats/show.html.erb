@@ -1,5 +1,11 @@
 <h1><%= @cat.name %></h1>
 
+
+<% if @cat.photo.attached? %>
+    <%= image_tag @cat.photo %>
+<% else %>
+    <p>no photo uploaded</p>
+<% end %>
 <%= link_to "Back", cats_path %>
 <%= link_to "Edit", edit_cat_path(@cat)%>
 <%= button_to "Delete", @cat, method: :delete, data: { turbo_confirm: "Are you sure? D:" } %>
