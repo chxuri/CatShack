@@ -8,3 +8,43 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+ .button-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+
+ .bodyStyle {
+    background-color: #afd2b5;
+    border: 20px solid white;
+    background-clip: padding-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    
+ }
+
+ .otherBod {
+    padding: 30px;
+ }
+
+ .headStyle
+ {
+    background: #ffb8b8;
+    padding: 30px;
+ }
+ .titleStyle
+ {
+    font-size: 1.5rem;
+ }
+ .center-text
+ {
+    text-align: center;
+ }
+
+ .edit-settings
+ {
+    display: flex;
+    gap: 10px;
+ }
+

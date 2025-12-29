@@ -69,3 +69,5 @@ gem "cloudinary"
 gem "activestorage-cloudinary-service"
 
 gem "pg", ">= 1.4"
+
+gem "image_processing", "~> 1.2"

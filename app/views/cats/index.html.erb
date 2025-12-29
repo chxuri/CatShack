@@ -1,18 +1,21 @@
-<h1>Cat Shack</h1>
-<p>Hi :3</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <div class="otherBod">
+        <p>Hi :3</p>
 
-<%= link_to "post a pic :D", new_cat_path %>
-
-<div id="cats">
-    <% @cats.each do |cat| %>
-        <div>
-            <%= link_to cat.name, cat_path(cat.id)%>
-            <% if cat.photo.attached? %>
-                <%= image_tag cat.photo %>
-            <% else %>
-                <p>no photo uploaded</p>
+        <div id="cats">
+            <% @cats.each do |cat| %>
+                <div>
+                    <%= link_to cat.name, cat_path(cat.id)%>
+                    <% if cat.photo.attached? %>
+                        <%= image_tag cat.photo.variant(resize_to_limit: [300, 300]).processed %>
+                    <% else %>
+                        <p>no photo uploaded</p>
+                    <% end %>
+                </div>
             <% end %>
         </div>
-    <% end %>
-</div>
+    </div>
+</head>
 

@@ -1,45 +1,53 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Shack" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <div class="headStyle">
+    <div class="titleStyle">
+      <h1 class="center-text"alert>Cat Shack</h1>
+    </div>
+      <title><%= content_for(:title) || "Shack" %></title>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="mobile-web-app-capable" content="yes">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
 
-    <% if user_signed_in? %>
-      <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= button_to "Sign In", new_user_session_path %>
-      <%= button_to "Sign Up", new_user_registration_path %>
-    <% end %>
+      <nav class="greetings">
+        <% if user_signed_in? %>
+          <p>HIII <%= current_user.username %>!</p>
+        <% else %>
+          <p>You better sign in so i can say hi to u &nbsp; >:(</p>
+        <% end %>
+        <div class="button-row">
+          <% if user_signed_in? %>
+            <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= button_to "Sign In", new_user_session_path %>
+            <%= button_to "Sign Up", new_user_registration_path %>
+          <% end %>
 
-    <% if user_signed_in? %>
-      <p>HIII <%= current_user.username %>!</p>
-    <% else %>
-      <p>You better sign in so i can say hi to u &nbsp; >:(</p>
-    <% end %>
+          <%= button_to "Post a Cat!", new_cat_path, method: :get %>
+        </nav>
+      </div>
+      <%= yield :head %>
 
-    <%= yield :head %>
+      <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+      <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+      <link rel="icon" href="/icon.png" type="image/png">
+      <link rel="icon" href="/icon.svg" type="image/svg+xml">
+      <link rel="apple-touch-icon" href="/icon.png">
 
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+      <%# Includes all stylesheet files in app/assets/stylesheets %>
+      <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+      <%= javascript_importmap_tags %>
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
   </head>
 
-  <body>
+  <body class="bodyStyle">
     <%= yield %>
   </body>
 </html>
