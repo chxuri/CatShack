@@ -67,3 +67,5 @@ gem "devise", "~> 4.9"
 gem "cloudinary"
 
 gem "activestorage-cloudinary-service"
+
+gem "pg", ">= 1.4"
