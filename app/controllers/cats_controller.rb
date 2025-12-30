@@ -14,6 +14,7 @@ class CatsController < ApplicationController
 
   def create
     @cat = current_user.cats.build(cat_params)
+
     if @cat.save
       redirect_to @cat, notice: "NEW KITTY!!"
     else
@@ -42,6 +43,6 @@ class CatsController < ApplicationController
       @cat = Cat.find(params[:id])
     end
     def cat_params
-      params.expect(cat: [ :name, :photo ])
+      params.require(:cat).permit(:name, :photo)
     end
 end
